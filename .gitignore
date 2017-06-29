@@ -1,6 +1,12 @@
-# =============
+# =================
+# Project specific
+# =================
+login_data
+
+
+# =================
 # Java specific
-# =============
+# =================
 
 # Compiled class file
 *.class
