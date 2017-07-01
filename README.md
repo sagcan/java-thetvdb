@@ -1,6 +1,12 @@
 # java-thetvdb (WIP)
+## TODO
+* Update README with proper User-Guide
+* Add table of contents?
+
+## Unsupported API calls
 The following API calls are unsupported as of now, since I personally haven't found any usage for them in my projects (feel free to open an issue or pull request):   
-| Path                               	| Description                                                                                                                                                                                                                                                       	| URL                                                                          	|
+
+| Path                               	| Description                                                                                                                                                                                                                                                       	| URL                                                                          	|   
 |------------------------------------	|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|------------------------------------------------------------------------------	|
 | /languages                         	| All available languages. These language abbreviations can be used in the "Accept-Language" header for routes that return translation records.                                                                                                                     	| https://api.thetvdb.com/swagger#!/Languages/get_languages                    	|
 | /languages/{id}                    	| Information about a particular language, given the language ID.                                                                                                                                                                                                   	| https://api.thetvdb.com/swagger#!/Languages/get_languages_id                 	|
@@ -15,4 +21,4 @@ The following API calls are unsupported as of now, since I personally haven't fo
 | /updated/query                     	| Returns an array of series that have changed in a maximum of one week blocks since the provided "fromTime". The user may specify a "toTime" to grab results for less than a week. Any timespan larger than a week will be reduced down to one week automatically. 	| https://api.thetvdb.com/swagger#!/Updates/get_updated_query                  	|
 | /updated/query/params              	| Returns an array of valid query keys for the "/updated/query/params" route.                                                                                                                                                                                       	| https://api.thetvdb.com/swagger#!/Updates/get_updated_query_params           	|
     
-... and anything user-related as - again - there was no usage for me and the API calls feel somewhat basic (get/ add/ delete series and ratings from user). 
+...and anything user-related as - again - there was no usage for me and the API calls feel somewhat basic (get/ add/ delete series and ratings from user). 
