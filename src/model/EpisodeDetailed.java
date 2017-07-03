@@ -5,7 +5,12 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 /**
- * Created by volkan on 01.07.17.
+ * @author Volkan Sagcan
+ * @version 1.0
+ *
+ * This class will be used for a GSON de-serialization (a.k.a POJO class).
+ *
+ * @see <a href="https://api.thetvdb.com/swagger#!/Episodes/get_episodes_id">For a better description</a>
  */
 public class EpisodeDetailed {
     @SerializedName("data")

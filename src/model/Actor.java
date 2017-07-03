@@ -5,6 +5,14 @@ import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Volkan Sagcan
+ * @version 1.0
+ *
+ * This class will be used for a GSON de-serialization (a.k.a POJO class).
+ *
+ * @see <a href="https://api.thetvdb.com/swagger#!/Series/get_series_id_actors">For a better description</a>
+ */
 public class Actor {
     private static final String IMAGE_BASE_URL = "https://thetvdb.com/banners/";
 

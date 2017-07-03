@@ -8,9 +8,12 @@ import java.util.Properties;
 
 /**
  * @author Volkan Sagcan
- *         <p>
- *         POJO class which is used to obtain a session token.
- *         For more information see: https://api.thetvdb.com/swagger#!/Authentication/post_login
+ * @version 1.0
+ *
+ * This class will be used for a GSON serialization (a.k.a POJO class) in order to add it to the HTTP header as a
+ * JSON formatted String.
+ *
+ * @see <a href="https://api.thetvdb.com/swagger#!/Authentication/post_login">For a better description</a>
  */
 public class User {
     private String username;

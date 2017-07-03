@@ -6,7 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by volkan on 29.06.17.
+ * @author Volkan Sagcan
+ * @version 1.0
+ *
+ * This class will be used for a GSON de-serialization (a.k.a POJO class).
+ *
+ * @see <a href="https://api.thetvdb.com/swagger#!/Search/get_search_series">For a better description</a>
  */
 public class SearchResult {
     private static final String IMAGE_BASE_URL = "https://thetvdb.com/banners/";

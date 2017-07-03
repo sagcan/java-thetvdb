@@ -7,7 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by volkan on 01.07.17.
+ * @author Volkan Sagcan
+ * @version 1.0
+ *
+ * This class will be used for a GSON de-serialization (a.k.a. POJO class).
+ *
+ * @see <a href="https://api.thetvdb.com/swagger#!/Series/get_series_id_images">For a better description</a>
  */
 /* TODO: ratingsInfo attribute ignored */
 public class Image {

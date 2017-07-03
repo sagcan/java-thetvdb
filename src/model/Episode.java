@@ -6,9 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by volkan on 30.06.17.
+ * @author Volkan Sagcan
+ * @version 1.0
+ *
+ * This class will be used for a GSON de-serialization (a.k.a POJO class).
+ *
+ * @see <a href="https://api.thetvdb.com/swagger#!/Series/get_series_id_episodes">For a better description</a>
  */
-
 public class Episode {
     @SerializedName("data")                 private List<Episode> episodes = new ArrayList<>();
 

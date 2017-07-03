@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by volkan on 30.06.17.
+ * @author Volkan Sagcan
+ * @version 1.0
+ *
+ * This class will be used to bundle episode objects into their respective seasons
  */
 public class Season {
     private List<Episode> episodes = new ArrayList<>();

@@ -1,7 +1,10 @@
 package model;
 
 /**
- * Created by volkan on 25.06.17.
+ * @author Volkan Sagcan
+ * @version 1.0
+ *
+ * This class will be used for a GSON de-serialization (a.k.a POJO class) in order to receive the session token.
  */
 public class Session {
     private String token;

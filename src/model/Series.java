@@ -5,7 +5,12 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 /**
- * Created by volkan on 29.06.17.
+ * @author Volkan Sagcan
+ * @version 1.0
+ *
+ * This class will be used for a GSON de-serialization (a.k.a POJO class).
+ *
+ * @see <a href="https://api.thetvdb.com/swagger#!/Series/get_series_id">For a better description</a>
  */
 public class Series {
     private static final String IMAGE_BASE_URL = "https://thetvdb.com/banners/";

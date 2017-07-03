@@ -1,7 +1,10 @@
 package model;
 
 /**
- * Created by volkan on 01.07.17.
+ * @author Volkan Sagcan
+ * @version 1.0
+ *
+ * This class is will be used for specifications of a Image object types.
  */
 public enum ImageType {
     FANART,
