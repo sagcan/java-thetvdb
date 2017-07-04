@@ -95,7 +95,6 @@ public class TheTVDBAPI {
             /* Response was successful, therefore we can extract the sessionToken */
             httpEntity = httpResponse.getEntity();
             sessionToken = EntityUtils.toString(httpEntity, "UTF-8");
-            System.out.println(sessionToken);
         } else {
             /* Response was not successful */
             System.out.println("Unauthorized");
@@ -254,8 +253,8 @@ public class TheTVDBAPI {
         int totalSeasons = 0;
 
         for (Episode e : episodes) {
-            if (e.getAiredSeason() > totalSeasons)
-                totalSeasons = e.getAiredSeason();
+            if (e.getSeasonNumber() > totalSeasons)
+                totalSeasons = e.getSeasonNumber();
         }
 
         /* Wrap all the give episode objects into a list of season objects and return it */
@@ -265,7 +264,7 @@ public class TheTVDBAPI {
             Season tempSeasonObject = new Season();
             List<Episode> tempEpisodes = tempEpisodes = new ArrayList<>();
             for (int j = 0; j < episodes.size(); j++) {
-                if (episodes.get(j).getAiredSeason() == i)
+                if (episodes.get(j).getSeasonNumber() == i)
                     tempEpisodes.add(episodes.get(j));
             }
             tempSeasonObject.setEpisodes(tempEpisodes);
