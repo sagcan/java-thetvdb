@@ -18,95 +18,62 @@ public class SearchResult {
 
     @SerializedName("data")         private List<SearchResult> searchResults = new ArrayList<>();
 
-    @SerializedName("id")           private int id;
-    @SerializedName("aliases")      private List<String> aliases;
+    @SerializedName("id")           private int seriesId;
+    @SerializedName("aliases")      private List<String> seriesAliases;
     @SerializedName("seriesName")   private String seriesName;
-    @SerializedName("banner")       private String banner;
-    @SerializedName("firstAired")   private String firstAired;
-    @SerializedName("network")      private String network;
-    @SerializedName("status")       private String status;
-    @SerializedName("overview")     private String description;
+    @SerializedName("banner")       private String seriesBannerUrl;
+    @SerializedName("firstAired")   private String seriesFirstAired;
+    @SerializedName("network")      private String seriesNetwork;
+    @SerializedName("status")       private String seriesStatus;
+    @SerializedName("overview")     private String seriesDescription;
 
-
+    @Override
     public String toString() {
-        return  getId()          + "\n" +
-                getAliases()     + "\n" +
-                getSeriesName()  + "\n" +
-                getBanner()      + "\n" +
-                getFirstAired()  + "\n" +
-                getNetwork()     + "\n" +
-                getStatus()      + "\n";
+        return "\nSearchResult{"          +
+                "seriesId="             + seriesId          +
+                ", seriesAliases="      + seriesAliases     +
+                ", seriesName='"        + seriesName        + '\'' +
+                ", seriesBannerUrl='"   + seriesBannerUrl   + '\'' +
+                ", seriesFirstAired='"  + seriesFirstAired  + '\'' +
+                ", seriesNetwork='"     + seriesNetwork     + '\'' +
+                ", seriesStatus='"      + seriesStatus      + '\'' +
+                ", seriesDescription='" + seriesDescription + '\'' +
+                '}';
     }
 
     public List<SearchResult> getSearchResults() {
         return searchResults;
     }
 
-    public void setSearchResults(List<SearchResult> searchResults) {
-        this.searchResults = searchResults;
+    public int getSeriesId() {
+        return seriesId;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public List<String> getAliases() {
-        return aliases;
-    }
-
-    public void setAliases(List<String> aliases) {
-        this.aliases = aliases;
+    public List<String> getSeriesAliases() {
+        return seriesAliases;
     }
 
     public String getSeriesName() {
         return seriesName;
     }
 
-    public void setSeriesName(String seriesName) {
-        this.seriesName = seriesName;
+    public String getSeriesBannerUrl() {
+        return IMAGE_BASE_URL + seriesBannerUrl;
     }
 
-    public String getBanner() {
-        return IMAGE_BASE_URL + banner;
+    public String getSeriesFirstAired() {
+        return seriesFirstAired;
     }
 
-    public void setBanner(String banner) {
-        this.banner = banner;
+    public String getSeriesNetwork() {
+        return seriesNetwork;
     }
 
-    public String getFirstAired() {
-        return firstAired;
+    public String getSeriesStatus() {
+        return seriesStatus;
     }
 
-    public void setFirstAired(String firstAired) {
-        this.firstAired = firstAired;
-    }
-
-    public String getNetwork() {
-        return network;
-    }
-
-    public void setNetwork(String network) {
-        this.network = network;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
+    public String getSeriesDescription() {
+        return seriesDescription;
     }
 }

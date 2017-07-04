@@ -17,225 +17,139 @@ public class Series {
 
     @SerializedName("data")             private Series series;
 
-    @SerializedName("id")               private int id;
-    @SerializedName("lastUpdated")      private int lastUpdated; /* TODO */
-    @SerializedName("seriesId")         private int seriesId;
+    @SerializedName("id")               private int seriesId;
+    @SerializedName("lastUpdated")      private int seriesLastUpdated;
+
+    @SerializedName("added")            private String seriesAdded;
+    @SerializedName("airsDayOfWeek")    private String seriesAirsDayOfWeek;
+    @SerializedName("airsTime")         private String seriesAirsTime;
+    @SerializedName("banner")           private String seriesBannerUrl;
+    @SerializedName("firstAired")       private String seriesFirstAired;
+    @SerializedName("network")          private String seriesNetwork;
+    @SerializedName("networkId")        private String seriesNetworkId;
+    @SerializedName("overview")         private String seriesDescription;
+    @SerializedName("rating")           private String seriesRating;
+    @SerializedName("runtime")          private String seriesRuntime;
+    @SerializedName("seriesName")       private String seriesName;
+    @SerializedName("status")           private String seriesStatus;
+
+    @SerializedName("aliases")          private List<String> seriesAliases;
+    @SerializedName("genre")            private List<String> seriesGenre;
+
     @SerializedName("siteRating")       private double siteRating;
     @SerializedName("siteRatingCount")  private int siteRatingCount;
-    @SerializedName("added")            private String added;
-    @SerializedName("airsDayOfWeek")    private String airsDayOfWeek;
-    @SerializedName("airsTime")         private String airsTime;
-    @SerializedName("banner")           private String banner;
-    @SerializedName("firstAired")       private String firstAired;
-    @SerializedName("imdbId")           private String imdbId;
-    @SerializedName("network")          private String network;
-    @SerializedName("networkId")        private String networkId;
-    @SerializedName("overview")         private String overview;
-    @SerializedName("rating")           private String rating;
-    @SerializedName("runtime")          private String runtime;
-    @SerializedName("seriesName")       private String seriesName;
-    @SerializedName("status")           private String status;
-    @SerializedName("zap2itId")         private String zap2itId;
-    @SerializedName("aliases")          private List<String> aliases;
-    @SerializedName("genre")            private List<String> genre;
 
+    @SerializedName("imdbId")           private String imdbId;
+    @SerializedName("zap2itId")         private String zap2itId;
+    /* @SerializedName("seriesId")         private int seriesId; --> is wrong? */
+
+    @Override
     public String toString() {
-        return  getId()                 + "\n" +
-                getLastUpdated()        + "\n" +
-                getSeriesId()           + "\n" +
-                getSiteRating()         + "\n" +
-                getSiteRatingCount()    + "\n" +
-                getAdded()              + "\n" +
-                getAirsDayOfWeek()      + "\n" +
-                getAirsTime()           + "\n" +
-                getBanner()             + "\n" +
-                getFirstAired()         + "\n" +
-                getImdbId()             + "\n" +
-                getNetwork()            + "\n" +
-                getNetworkId()          + "\n" +
-                getOverview()           + "\n" +
-                getRating()             + "\n" +
-                getRuntime()            + "\n" +
-                getSeriesName()         + "\n" +
-                getStatus()             + "\n" +
-                getZap2itId()           + "\n" +
-                getAliases()            + "\n" +
-                getGenre()              + "\n";
+        return "Series{" +
+                "seriesId="                 + getSeriesId()              +
+                ", seriesLastUpdated="      + getSeriesLastUpdated()     +          /* TODO: FORMAT? */
+                ", seriesAdded='"           + getSeriesAdded()           + '\'' +
+                ", seriesAirsDayOfWeek='"   + getSeriesAirsDayOfWeek()   + '\'' +
+                ", seriesAirsTime='"        + getSeriesAirsTime()        + '\'' +
+                ", seriesBannerUrl='"       + getSeriesBannerUrl()       + '\'' +
+                ", seriesFirstAired='"      + getSeriesFirstAired()      + '\'' +
+                ", seriesNetwork='"         + getSeriesNetwork()         + '\'' +
+                ", seriesNetworkId='"       + getSeriesNetworkId()       + '\'' +
+                ", seriesDescription='"     + getSeriesDescription()     + '\'' +
+                ", seriesRating='"          + getSeriesRating()          + '\'' +
+                ", seriesRuntime='"         + getSeriesRuntime()         + '\'' +
+                ", seriesName='"            + getSeriesName()            + '\'' +
+                ", seriesStatus='"          + getSeriesStatus()          + '\'' +
+                ", seriesAliases="          + getSeriesAliases()         +
+                ", seriesGenre="            + getSeriesGenre()           +
+                ", siteRating="             + getSiteRating()            +
+                ", siteRatingCount="        + getSiteRatingCount()       +
+                ", imdbId='"                + getImdbId()                + '\'' +
+                ", zap2itId='"              + getZap2itId()              + '\'' +
+                '}';
     }
 
     public Series getSeries() {
         return series;
     }
 
-    public void setSeries(Series series) {
-        this.series = series;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getLastUpdated() {
-        return lastUpdated;
-    }
-
-    public void setLastUpdated(int lastUpdated) {
-        this.lastUpdated = lastUpdated;
-    }
-
     public int getSeriesId() {
         return seriesId;
     }
 
-    public void setSeriesId(int seriesId) {
-        this.seriesId = seriesId;
+    public int getSeriesLastUpdated() {
+        return seriesLastUpdated;
     }
 
-    public double getSiteRating() {
-        return siteRating;
+    public String getSeriesAdded() {
+        return seriesAdded;
     }
 
-    public void setSiteRating(double siteRating) {
-        this.siteRating = siteRating;
+    public String getSeriesAirsDayOfWeek() {
+        return seriesAirsDayOfWeek;
     }
 
-    public int getSiteRatingCount() {
-        return siteRatingCount;
+    public String getSeriesAirsTime() {
+        return seriesAirsTime;
     }
 
-    public void setSiteRatingCount(int siteRatingCount) {
-        this.siteRatingCount = siteRatingCount;
+    public String getSeriesBannerUrl() {
+        return IMAGE_BASE_URL + seriesBannerUrl;
     }
 
-    public String getAdded() {
-        return added;
+    public String getSeriesFirstAired() {
+        return seriesFirstAired;
     }
 
-    public void setAdded(String added) {
-        this.added = added;
+    public String getSeriesNetwork() {
+        return seriesNetwork;
     }
 
-    public String getAirsDayOfWeek() {
-        return airsDayOfWeek;
+    public String getSeriesNetworkId() {
+        return seriesNetworkId;
     }
 
-    public void setAirsDayOfWeek(String airsDayOfWeek) {
-        this.airsDayOfWeek = airsDayOfWeek;
+    public String getSeriesDescription() {
+        return seriesDescription;
     }
 
-    public String getAirsTime() {
-        return airsTime;
+    public String getSeriesRating() {
+        return seriesRating;
     }
 
-    public void setAirsTime(String airsTime) {
-        this.airsTime = airsTime;
-    }
-
-    public String getBanner() {
-        return IMAGE_BASE_URL + banner;
-    }
-
-    public void setBanner(String banner) {
-        this.banner = banner;
-    }
-
-    public String getFirstAired() {
-        return firstAired;
-    }
-
-    public void setFirstAired(String firstAired) {
-        this.firstAired = firstAired;
-    }
-
-    public String getImdbId() {
-        return imdbId;
-    }
-
-    public void setImdbId(String imdbId) {
-        this.imdbId = imdbId;
-    }
-
-    public String getNetwork() {
-        return network;
-    }
-
-    public void setNetwork(String network) {
-        this.network = network;
-    }
-
-    public String getNetworkId() {
-        return networkId;
-    }
-
-    public void setNetworkId(String networkId) {
-        this.networkId = networkId;
-    }
-
-    public String getOverview() {
-        return overview;
-    }
-
-    public void setOverview(String overview) {
-        this.overview = overview;
-    }
-
-    public String getRating() {
-        return rating;
-    }
-
-    public void setRating(String rating) {
-        this.rating = rating;
-    }
-
-    public String getRuntime() {
-        return runtime;
-    }
-
-    public void setRuntime(String runtime) {
-        this.runtime = runtime;
+    public String getSeriesRuntime() {
+        return seriesRuntime;
     }
 
     public String getSeriesName() {
         return seriesName;
     }
 
-    public void setSeriesName(String seriesName) {
-        this.seriesName = seriesName;
+    public String getSeriesStatus() {
+        return seriesStatus;
     }
 
-    public String getStatus() {
-        return status;
+    public List<String> getSeriesAliases() {
+        return seriesAliases;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public List<String> getSeriesGenre() {
+        return seriesGenre;
+    }
+
+    public double getSiteRating() {
+        return siteRating;
+    }
+
+    public int getSiteRatingCount() {
+        return siteRatingCount;
+    }
+
+    public String getImdbId() {
+        return imdbId;
     }
 
     public String getZap2itId() {
         return zap2itId;
-    }
-
-    public void setZap2itId(String zap2itId) {
-        this.zap2itId = zap2itId;
-    }
-
-    public List<String> getAliases() {
-        return aliases;
-    }
-
-    public void setAliases(List<String> aliases) {
-        this.aliases = aliases;
-    }
-
-    public List<String> getGenre() {
-        return genre;
-    }
-
-    public void setGenre(List<String> genre) {
-        this.genre = genre;
     }
 }

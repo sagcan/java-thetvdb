@@ -13,295 +13,145 @@ import java.util.List;
  * @see <a href="https://api.thetvdb.com/swagger#!/Episodes/get_episodes_id">For a better description</a>
  */
 public class EpisodeDetailed {
-    @SerializedName("data")
-    private EpisodeDetailed episodeDetailed;
+    @SerializedName("data")                 private EpisodeDetailed episodeDetailed;
 
-    @SerializedName("id")                   private int id;
-    @SerializedName("absoluteNumber")       private int absoluteNumber;
-    @SerializedName("airedEpisodeNumber")   private int airedEpisodeNumber;
-    @SerializedName("airedSeason")          private int airedSeason;
+    @SerializedName("id")                   private int episodeId;
+    @SerializedName("seriesId")             private String seriesId;
+    @SerializedName("imdbId")               private String imdbId;
+    @SerializedName("airedEpisodeNumber")   private int episodeNumber;
+    @SerializedName("absoluteNumber")       private int absoluteEpisodeNumber;
+    @SerializedName("airedSeason")          private int seasonNumber;
+    @SerializedName("lastUpdated")          private int episodeLastUpdated;     /* TODO: FORMAT? */
+    @SerializedName("episodeName")          private String episodeName;
+    @SerializedName("overview")             private String episodeDescription;
+    @SerializedName("firstAired")           private String episodeFirstAired;
+    @SerializedName("siteRating")           private double siteRating;
+    @SerializedName("siteRatingCount")      private int siteRatingVotes;
+
+    @SerializedName("directors")            private List<String> directors;
+    @SerializedName("guestStars")           private List<String> guestStars;
+    @SerializedName("writers")              private List<String> writers;
+
+    @SerializedName("dvdEpisodeNumber")     private int dvdEpisodeNumber;
+    @SerializedName("dvdSeason")            private int dvdSeasonNumber;
+
+    /*
+    Seems like unnecessary information, therefore those attributes are ignored in order to keep everything
+    a bit minimal.
+    ------------------------------------------------------------------------------------------------------
     @SerializedName("airsAfterSeason")      private int airsAfterSeason;
     @SerializedName("airsBeforeEpisode")    private int airsBeforeEpisode;
     @SerializedName("airsBeforeSeason")     private int airsBeforeSeason;
     @SerializedName("dvdChapter")           private int dvdChapter;
-    @SerializedName("dvdEpisodeNumber")     private int dvdEpisodeNumber;
-    @SerializedName("dvdSeason")            private int dvdSeason;
-    @SerializedName("lastUpdated")          private int lastUpdated;
     @SerializedName("thumbAuthor")          private int thumbAuthor;
-    @SerializedName("siteRatingCount")      private int siteRatingCount;
-    @SerializedName("siteRating")           private double siteRating;
-    @SerializedName("director")             private String director;
     @SerializedName("dvdDiscid")            private String dvdDiscid;
-    @SerializedName("episodeName")          private String episodeName;
-    @SerializedName("fileName")             private String filename;
-    @SerializedName("firstAired")           private String firstAired;
-    @SerializedName("imdbId")               private String imdbId;
     @SerializedName("lastUpdatedBy")        private String lastUpdatedBy;
-    @SerializedName("overview")             private String overview;
-    @SerializedName("productionCode")       private String productionCode;
-    @SerializedName("seriesId")             private String seriesId;
-    @SerializedName("showUrl")              private String showUrl;
     @SerializedName("thumbAdded")           private String thumbAdded;
     @SerializedName("thumbHeight")          private String thumbHeight;
     @SerializedName("thumbWidth")           private String thumbWidth;
-    @SerializedName("directors")            private List<String> directors;
-    @SerializedName("guestStars")           private List<String> guestStars;
-    @SerializedName("writers")              private List<String> writers;
+    @SerializedName("productionCode")       private String productionCode;
+    @SerializedName("showUrl")              private String showUrl;
+    @SerializedName("fileName")             private String filename;
+    @SerializedName("director")             private String director;
+    */
+
+    @Override
+    public String toString() {
+        return "EpisodeDetailed{"           +
+                "episodeId="              + getEpisodeId()                +
+                ", episodeNumber="          + getEpisodeNumber()            +
+                ", absoluteEpisodeNumber="  + getAbsoluteEpisodeNumber()    +
+                ", seasonNumber="           + getSeasonNumber()             +
+                ", episodeLastUpdated="     + getEpisodeLastUpdated()       +
+                ", episodeName='"           + getEpisodeName()              + '\'' +
+                ", episodeDescription='"    + getEpisodeDescription()       + '\'' +
+                ", episodeFirstAired='"     + getEpisodeFirstAired()        + '\'' +
+                ", dvdEpisodeNumber="       + getDvdEpisodeNumber()         +
+                ", dvdSeasonNumber="        + getDvdSeasonNumber()          +
+                ", siteRatingVotes="        + getSiteRatingVotes()          +
+                ", siteRating="             + getSiteRating()               +
+                ", imdbId='"                + getImdbId()                   + '\'' +
+                ", seriesId='"              + getSeriesId()                 + '\'' +
+                ", directors="              + getDirectors()                +
+                ", guestStars="             + getGuestStars()               +
+                ", writers="                + getWriters()                  +
+                '}';
+    }
 
     public EpisodeDetailed getEpisodeDetailed() {
         return episodeDetailed;
     }
 
-    public void setEpisodeDetailed(EpisodeDetailed episodeDetailed) {
-        this.episodeDetailed = episodeDetailed;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getAbsoluteNumber() {
-        return absoluteNumber;
-    }
-
-    public void setAbsoluteNumber(int absoluteNumber) {
-        this.absoluteNumber = absoluteNumber;
-    }
-
-    public int getAiredEpisodeNumber() {
-        return airedEpisodeNumber;
-    }
-
-    public void setAiredEpisodeNumber(int airedEpisodeNumber) {
-        this.airedEpisodeNumber = airedEpisodeNumber;
-    }
-
-    public int getAiredSeason() {
-        return airedSeason;
-    }
-
-    public void setAiredSeason(int airedSeason) {
-        this.airedSeason = airedSeason;
-    }
-
-    public int getAirsAfterSeason() {
-        return airsAfterSeason;
-    }
-
-    public void setAirsAfterSeason(int airsAfterSeason) {
-        this.airsAfterSeason = airsAfterSeason;
-    }
-
-    public int getAirsBeforeEpisode() {
-        return airsBeforeEpisode;
-    }
-
-    public void setAirsBeforeEpisode(int airsBeforeEpisode) {
-        this.airsBeforeEpisode = airsBeforeEpisode;
-    }
-
-    public int getAirsBeforeSeason() {
-        return airsBeforeSeason;
-    }
-
-    public void setAirsBeforeSeason(int airsBeforeSeason) {
-        this.airsBeforeSeason = airsBeforeSeason;
-    }
-
-    public int getDvdChapter() {
-        return dvdChapter;
-    }
-
-    public void setDvdChapter(int dvdChapter) {
-        this.dvdChapter = dvdChapter;
-    }
-
-    public int getDvdEpisodeNumber() {
-        return dvdEpisodeNumber;
-    }
-
-    public void setDvdEpisodeNumber(int dvdEpisodeNumber) {
-        this.dvdEpisodeNumber = dvdEpisodeNumber;
-    }
-
-    public int getDvdSeason() {
-        return dvdSeason;
-    }
-
-    public void setDvdSeason(int dvdSeason) {
-        this.dvdSeason = dvdSeason;
-    }
-
-    public int getLastUpdated() {
-        return lastUpdated;
-    }
-
-    public void setLastUpdated(int lastUpdated) {
-        this.lastUpdated = lastUpdated;
-    }
-
-    public int getThumbAuthor() {
-        return thumbAuthor;
-    }
-
-    public void setThumbAuthor(int thumbAuthor) {
-        this.thumbAuthor = thumbAuthor;
-    }
-
-    public double getSiteRating() {
-        return siteRating;
-    }
-
-    public void setSiteRating(double siteRating) {
-        this.siteRating = siteRating;
-    }
-
-    public int getSiteRatingCount() {
-        return siteRatingCount;
-    }
-
-    public void setSiteRatingCount(int siteRatingCount) {
-        this.siteRatingCount = siteRatingCount;
-    }
-
-    public String getDirector() {
-        return director;
-    }
-
-    public void setDirector(String director) {
-        this.director = director;
-    }
-
-    public String getDvdDiscid() {
-        return dvdDiscid;
-    }
-
-    public void setDvdDiscid(String dvdDiscid) {
-        this.dvdDiscid = dvdDiscid;
-    }
-
-    public String getEpisodeName() {
-        return episodeName;
-    }
-
-    public void setEpisodeName(String episodeName) {
-        this.episodeName = episodeName;
-    }
-
-    public String getFilename() {
-        return filename;
-    }
-
-    public void setFilename(String filename) {
-        this.filename = filename;
-    }
-
-    public String getFirstAired() {
-        return firstAired;
-    }
-
-    public void setFirstAired(String firstAired) {
-        this.firstAired = firstAired;
-    }
-
-    public String getImdbId() {
-        return imdbId;
-    }
-
-    public void setImdbId(String imdbId) {
-        this.imdbId = imdbId;
-    }
-
-    public String getLastUpdatedBy() {
-        return lastUpdatedBy;
-    }
-
-    public void setLastUpdatedBy(String lastUpdatedBy) {
-        this.lastUpdatedBy = lastUpdatedBy;
-    }
-
-    public String getOverview() {
-        return overview;
-    }
-
-    public void setOverview(String overview) {
-        this.overview = overview;
-    }
-
-    public String getProductionCode() {
-        return productionCode;
-    }
-
-    public void setProductionCode(String productionCode) {
-        this.productionCode = productionCode;
+    public int getEpisodeId() {
+        return episodeId;
     }
 
     public String getSeriesId() {
         return seriesId;
     }
 
-    public void setSeriesId(String seriesId) {
-        this.seriesId = seriesId;
+    public String getImdbId() {
+        return imdbId;
     }
 
-    public String getShowUrl() {
-        return showUrl;
+    public int getEpisodeNumber() {
+        return episodeNumber;
     }
 
-    public void setShowUrl(String showUrl) {
-        this.showUrl = showUrl;
+    /**
+     * Ignores re-indexing by seasons. For example Season 2 Episode 3 would return the number 13 as compared with
+     * {@link #getEpisodeNumber()} which would return 3 (Season 1 has 10 episodes, therefore 10 + 3).
+     */
+    public int getAbsoluteEpisodeNumber() {
+        return absoluteEpisodeNumber;
     }
 
-    public String getThumbAdded() {
-        return thumbAdded;
+    public int getSeasonNumber() {
+        return seasonNumber;
     }
 
-    public void setThumbAdded(String thumbAdded) {
-        this.thumbAdded = thumbAdded;
+    public int getEpisodeLastUpdated() {
+        return episodeLastUpdated;
     }
 
-    public String getThumbHeight() {
-        return thumbHeight;
+    public String getEpisodeName() {
+        return episodeName;
     }
 
-    public void setThumbHeight(String thumbHeight) {
-        this.thumbHeight = thumbHeight;
+    public String getEpisodeDescription() {
+        return episodeDescription;
     }
 
-    public String getThumbWidth() {
-        return thumbWidth;
+    public String getEpisodeFirstAired() {
+        return episodeFirstAired;
     }
 
-    public void setThumbWidth(String thumbWidth) {
-        this.thumbWidth = thumbWidth;
+    public double getSiteRating() {
+        return siteRating;
+    }
+
+    public int getSiteRatingVotes() {
+        return siteRatingVotes;
     }
 
     public List<String> getDirectors() {
         return directors;
     }
 
-    public void setDirectors(List<String> directors) {
-        this.directors = directors;
-    }
-
     public List<String> getGuestStars() {
         return guestStars;
-    }
-
-    public void setGuestStars(List<String> guestStars) {
-        this.guestStars = guestStars;
     }
 
     public List<String> getWriters() {
         return writers;
     }
 
-    public void setWriters(List<String> writers) {
-        this.writers = writers;
+    public int getDvdEpisodeNumber() {
+        return dvdEpisodeNumber;
+    }
+
+    public int getDvdSeasonNumber() {
+        return dvdSeasonNumber;
     }
 }
 

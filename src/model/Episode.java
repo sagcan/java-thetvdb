@@ -16,102 +16,79 @@ import java.util.List;
 public class Episode {
     @SerializedName("data")                 private List<Episode> episodes = new ArrayList<>();
 
-    @SerializedName("absoluteNumber")       private int absoluteNumber;
-    @SerializedName("airedEpisodeNumber")   private int airedEpisodeNumber;
-    @SerializedName("airedSeason")          private int airedSeason;
-    @SerializedName("dvdEpisodeNumber")     private int dvdEpisodeNumber;
-    @SerializedName("dvdSeason")            private int dvdSeason;
-    @SerializedName("id")                   private int id;
-    @SerializedName("lastUpdated")          private int lastUpdated;
+    @SerializedName("id")                   private int episodeId;
+    @SerializedName("airedEpisodeNumber")   private int episodeNumber;
+    @SerializedName("absoluteNumber")       private int absoluteEpisodeNumber;
+    @SerializedName("airedSeason")          private int seasonNumber;
+    @SerializedName("lastUpdated")          private int episodeLastUpdated;     /* TODO: FORMAT? */
     @SerializedName("episodeName")          private String episodeName;
-    @SerializedName("firstAired")           private String firstAired;
-    @SerializedName("overview")             private String overview;
+    @SerializedName("overview")             private String episodeDescription;
+    @SerializedName("firstAired")           private String episodeFirstAired;
+
+    @SerializedName("dvdEpisodeNumber")     private int dvdEpisodeNumber;
+    @SerializedName("dvdSeason")            private int dvdSeasonNumber;
+
+    @Override
+    public String toString() {
+        return "Episode{"                   +
+                "episodeId="              + getEpisodeId()             +
+                ", episodeNumber="          + getEpisodeNumber()         +
+                ", absoluteEpisodeNumber="  + getAbsoluteEpisodeNumber() +
+                ", seasonNumber="           + getSeasonNumber()          +
+                ", episodeLastUpdated="     + getEpisodeLastUpdated()    +
+                ", episodeName='"           + getEpisodeName()           + '\'' +
+                ", episodeDescription='"    + getEpisodeDescription()    + '\'' +
+                ", episodeFirstAired='"     + getEpisodeFirstAired()     + '\'' +
+                ", dvdEpisodeNumber="       + getDvdEpisodeNumber()      +
+                ", dvdSeasonNumber="        + getDvdSeasonNumber()       +
+                '}';
+    }
 
     public List<Episode> getEpisodes() {
         return episodes;
     }
 
-    public void setEpisodes(List<Episode> episodes) {
-        this.episodes = episodes;
+    public int getEpisodeId() {
+        return episodeId;
     }
 
-    public int getAbsoluteNumber() {
-        return absoluteNumber;
+    public int getEpisodeNumber() {
+        return episodeNumber;
     }
 
-    public void setAbsoluteNumber(int absoluteNumber) {
-        this.absoluteNumber = absoluteNumber;
+    /**
+     * Ignores re-indexing by seasons. For example Season 2 Episode 3 would return the number 13 as compared with
+     * {@link #getEpisodeNumber()} which would return 3 (Season 1 has 10 episodes, therefore 10 + 3).
+     */
+    public int getAbsoluteEpisodeNumber() {
+        return absoluteEpisodeNumber;
     }
 
-    public int getAiredEpisodeNumber() {
-        return airedEpisodeNumber;
+    public int getSeasonNumber() {
+        return seasonNumber;
     }
 
-    public void setAiredEpisodeNumber(int airedEpisodeNumber) {
-        this.airedEpisodeNumber = airedEpisodeNumber;
-    }
-
-    public int getAiredSeason() {
-        return airedSeason;
-    }
-
-    public void setAiredSeason(int airedSeason) {
-        this.airedSeason = airedSeason;
-    }
-
-    public int getDvdEpisodeNumber() {
-        return dvdEpisodeNumber;
-    }
-
-    public void setDvdEpisodeNumber(int dvdEpisodeNumber) {
-        this.dvdEpisodeNumber = dvdEpisodeNumber;
-    }
-
-    public int getDvdSeason() {
-        return dvdSeason;
-    }
-
-    public void setDvdSeason(int dvdSeason) {
-        this.dvdSeason = dvdSeason;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getLastUpdated() {
-        return lastUpdated;
-    }
-
-    public void setLastUpdated(int lastUpdated) {
-        this.lastUpdated = lastUpdated;
+    public int getEpisodeLastUpdated() {
+        return episodeLastUpdated;
     }
 
     public String getEpisodeName() {
         return episodeName;
     }
 
-    public void setEpisodeName(String episodeName) {
-        this.episodeName = episodeName;
+    public String getEpisodeDescription() {
+        return episodeDescription;
     }
 
-    public String getFirstAired() {
-        return firstAired;
+    public String getEpisodeFirstAired() {
+        return episodeFirstAired;
     }
 
-    public void setFirstAired(String firstAired) {
-        this.firstAired = firstAired;
+    public int getDvdEpisodeNumber() {
+        return dvdEpisodeNumber;
     }
 
-    public String getOverview() {
-        return overview;
-    }
-
-    public void setOverview(String overview) {
-        this.overview = overview;
+    public int getDvdSeasonNumber() {
+        return dvdSeasonNumber;
     }
 }
