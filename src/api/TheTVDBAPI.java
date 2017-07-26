@@ -111,6 +111,7 @@ public class TheTVDBAPI {
         httpGet = new HttpGet();
         httpGet.addHeader("Accept", "application/json");
         httpGet.addHeader("Authorization", "Bearer " + sessionToken);
+        /* System.out.println(sessionToken); */
     }
 
     /**
@@ -289,7 +290,6 @@ public class TheTVDBAPI {
     public List<Image> getImages(int seriesId, ImageType type) throws IOException {
         /* Prepare the URL */
         String url = BASE_URL + PATH_SERIES + PATH_IMAGES;
-        System.out.println(type.name());
         url = url.replace("$ID", String.valueOf(seriesId));
         url = url.replace("$KEYTYPE", type.name().toLowerCase());
 
