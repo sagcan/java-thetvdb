@@ -16,7 +16,7 @@ public class EpisodeDetailed {
     @SerializedName("data")                 private EpisodeDetailed episodeDetailed;
 
     @SerializedName("id")                   private int episodeId;
-    @SerializedName("seriesId")             private String seriesId;
+    @SerializedName("seriesId")             private int seriesId;
     @SerializedName("imdbId")               private String imdbId;
     @SerializedName("airedEpisodeNumber")   private int episodeNumber;
     @SerializedName("absoluteNumber")       private int absoluteEpisodeNumber;
@@ -86,7 +86,7 @@ public class EpisodeDetailed {
         return episodeId;
     }
 
-    public String getSeriesId() {
+    public int getSeriesId() {
         return seriesId;
     }
 

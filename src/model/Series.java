@@ -29,7 +29,7 @@ public class Series {
     @SerializedName("networkId")        private String seriesNetworkId;
     @SerializedName("overview")         private String seriesDescription;
     @SerializedName("rating")           private String seriesRating;
-    @SerializedName("runtime")          private String seriesRuntime;
+    @SerializedName("runtime")          private int seriesRuntime;
     @SerializedName("seriesName")       private String seriesName;
     @SerializedName("status")           private String seriesStatus;
 
@@ -117,7 +117,7 @@ public class Series {
         return seriesRating;
     }
 
-    public String getSeriesRuntime() {
+    public int getSeriesRuntime() {
         return seriesRuntime;
     }
 
