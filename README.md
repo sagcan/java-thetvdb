@@ -1,10 +1,112 @@
-# java-thetvdb (WIP)
-## TODO
-* Update README with proper User-Guide
-* Add table of contents?
+# java-thetvdb
+java-thetvdb is an unofficial java wrapper for the TheTVDB JSON-API (see https://api.thetvdb.com/swagger). 
+
+## Usage
+In order to access API-Calls we first have to create a TheTVDB account and setup a project at their site. Once an account and a project are set-up, the API- and User-Key can be obtained at the following page: http://thetvdb.com/?tab=userinfo. With those parameters we'll now create an TheTVDBAPI object ($USERNAME, $USERKEY and $APIKEY are the said parameters which you should have already obtained):
+```java
+TheTVDBAPI theTVDBAPI = TheTVDBAPI.getInstance("$USERNAME", "$USERKEY", "$APIKEY");
+```
+With the following object we can now:
+* search for shows and see their description
+* look up actors
+* look up episodes
+* look up images
+
+### Searching for shows
+In order to search for shows / series, we have to create an SearchResult object (better yet, a List). Let's take Game of Thrones for example.
+```java
+List<SearchResult> searchResults = new ArrayList<>();
+searchResults = theTVDBAPI.searchSeries("Game of Thrones");
+
+for (SearchResult s : searchResults) {
+    System.out.println(s.getSeriesName() + "; " + s.getSeriesId());
+}
+```
+Output:
+```
+Game of Thrones; 121361
+Game of Thrones: Cartoon Parody; 311939
+Tribe of Hip Hop; 321282
+```
+The given ID (121361 for Game of Thrones) can then be used to look up the show for more details.
+```java
+Series gameOfThrones = theTVDBAPI.getSeries(121361);
+System.out.println(
+        gameOfThrones.getSeriesName()       + "; " +
+        gameOfThrones.getSeriesNetwork()    + "; " +
+        gameOfThrones.getSeriesId()         + "; " +
+        gameOfThrones.getSeriesGenre().toString()
+        /* etc... */
+);
+```
+Output:
+```
+Game of Thrones; HBO; 121361; [Adventure, Drama, Fantasy]
+```
+
+### Looking up an Actor
+In order to look up actors, we first need the series ID, with which we can then request a List of Actors of a series. Let's again take Game of Thrones as an example.
+```java
+List<Actor> actor = theTVDBAPI.getActors(121361);
+for (Actor a : actor) {
+    if (a.getActorName().equals("Emilia Clarke"))
+        System.out.println(
+                a.getActorName()    + "; " +
+                a.getActorId()      + "; " +
+                a.getActorRole()    + "; " +
+                a.getImageUrl()
+                /* etc... */
+        );
+}
+```
+Output:
+```
+Emilia Clarke; 346310; Daenerys Targaryen; https://thetvdb.com/banners/actors/346310.jpg
+```
+
+### Looking up Episodes
+Episodes are usually bundled in Season object. This means, that we have a List of Seasons, which contain a List of Episodes. Again we will need the series ID in order to request seasons / episodes.
+```java
+List<Season> seasons = theTVDBAPI.getSeasons(121361);
+List<Episode> episodes = seasons.get(1).getEpisodes();
+for (Episode e : episodes) {
+    System.out.println(
+            e.getEpisodeName()          + "; " +
+            e.getEpisodeFirstAired()    + "; " +
+            e.getEpisodeId()            + "; "
+            /* etc... */        
+    );
+}
+```
+Output:
+```
+Winter Is Coming; 2011-04-17; 3254641; 
+The Kingsroad; 2011-04-24; 3436411; 
+Lord Snow; 2011-05-01; 3436421; 
+Cripples, Bastards, and Broken Things; 2011-05-08; 3436431; 
+The Wolf and the Lion; 2011-05-15; 3436441; 
+A Golden Crown; 2011-05-22; 3436451; 
+You Win or You Die; 2011-05-29; 3436461; 
+The Pointy End; 2011-06-05; 3360391; 
+Baelor; 2011-06-12; 4063481; 
+Fire and Blood; 2011-06-19; 4063491;
+```
+Note: with the given episodeId (3254641 for Winter is Coming) we can look up more details of an episode. This can be accomplished with an EpisodeDetailed object. 
+```java
+EpisodeDetailed episodeDetailed = theTVDBAPI.getSpecificEpisode(3254641);
+System.out.println(
+        episodeDetailed.getDirectors()      + "; " +
+        episodeDetailed.getWriters()        + "; "
+        /* etc... */
+);
+```
+Output:
+```
+[Tim Van Patten]; [David Benioff, D. B. Weiss]; 
+```
 
 ## Unsupported API calls
-The following API calls are unsupported as of now, since I personally haven't found any usage for them in my projects (feel free to open an issue or pull request):   
+The following API calls are unsupported as of now, since I personally haven't found any usage for them (feel free to open an issue or pull request):   
 
 | Path                               	| Description                                                                                                                                                                                                                                                       	| URL                                                                          	|   
 |------------------------------------	|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|------------------------------------------------------------------------------	|
@@ -21,4 +123,4 @@ The following API calls are unsupported as of now, since I personally haven't fo
 | /updated/query                     	| Returns an array of series that have changed in a maximum of one week blocks since the provided "fromTime". The user may specify a "toTime" to grab results for less than a week. Any timespan larger than a week will be reduced down to one week automatically. 	| https://api.thetvdb.com/swagger#!/Updates/get_updated_query                  	|
 | /updated/query/params              	| Returns an array of valid query keys for the "/updated/query/params" route.                                                                                                                                                                                       	| https://api.thetvdb.com/swagger#!/Updates/get_updated_query_params           	|
     
-...and anything user-related as - again - there was no usage for me and the API calls feel somewhat basic (get/ add/ delete series and ratings from user). 
+...and anything user-related.
