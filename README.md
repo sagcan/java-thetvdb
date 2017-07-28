@@ -2,7 +2,7 @@
 java-thetvdb is an unofficial java wrapper for the TheTVDB JSON-API (see https://api.thetvdb.com/swagger). 
 
 ## Usage
-In order to access API-Calls we first have to create a TheTVDB account and setup a project at their site. Once an account and a project are set-up, the API- and User-Key can be obtained at the following page: http://thetvdb.com/?tab=userinfo. With those parameters we'll now create an TheTVDBAPI object ($USERNAME, $USERKEY and $APIKEY are the said parameters which you should have already obtained):
+In order to access API-Calls we first have to create a TheTVDB account and setup a project at their site. Once an account and a project are set-up, the API- and User-Key can be obtained at the following page: http://thetvdb.com/?tab=userinfo. With those parameters we'll now create an TheTVDBAPI object ($USERNAME, $USERKEY and $APIKEY are the said parameters):
 ```java
 TheTVDBAPI theTVDBAPI = TheTVDBAPI.getInstance("$USERNAME", "$USERKEY", "$APIKEY");
 ```
@@ -15,9 +15,7 @@ With the following object we can now:
 ### Searching for shows
 In order to search for shows / series, we have to create an SearchResult object (better yet, a List). Let's take Game of Thrones for example.
 ```java
-List<SearchResult> searchResults = new ArrayList<>();
-searchResults = theTVDBAPI.searchSeries("Game of Thrones");
-
+List<SearchResult> searchResults = theTVDBAPI.searchSeries("Game of Thrones");
 for (SearchResult s : searchResults) {
     System.out.println(s.getSeriesName() + "; " + s.getSeriesId());
 }
