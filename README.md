@@ -103,6 +103,26 @@ Output:
 [Tim Van Patten]; [David Benioff, D. B. Weiss]; 
 ```
 
+### Looking up Images
+Lastly we can get some image URLs of specific series. For that we need the series ID and one of the given ImageTypes (= those are enums: Season, Poster, Series and Fanart). 
+```java
+List<Image> imageSeason = theTVDBAPI.getImages(121361, ImageType.SEASON);
+List<Image> imagePoster = theTVDBAPI.getImages(121361, ImageType.POSTER);
+List<Image> imageSeries = theTVDBAPI.getImages(121361, ImageType.SERIES);
+List<Image> imageFanart = theTVDBAPI.getImages(121361, ImageType.FANART);
+
+System.out.println("Season: " + imageSeason.get(0).getUrl());
+System.out.println("Poster: " + imageFanart.get(0).getUrl());
+System.out.println("Series: " + imageSeries.get(0).getUrl());
+System.out.println("Fanart: " + imagePoster.get(0).getUrl());
+```
+Output:
+```
+Season: https://thetvdb.com/banners/seasons/121361-2-17.jpg
+Poster: https://thetvdb.com/banners/fanart/original/121361-3.jpg
+Series: https://thetvdb.com/banners/graphical/121361-g26.jpg
+Fanart: https://thetvdb.com/banners/posters/121361-1.jpg
+```
 ## Unsupported API calls
 The following API calls are unsupported as of now, since I personally haven't found any usage for them (feel free to open an issue or pull request):   
 
