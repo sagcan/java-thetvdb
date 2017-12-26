@@ -275,6 +275,13 @@ public class TheTVDBAPI {
             seasons.add(tempSeasonObject);
         }
 
+        /* Double check if all season objects contain a list of episodes greater than 1*/
+        for (int i = 0; i < seasons.size(); i++) {
+            if (seasons.get(i).getEpisodes().size() < 1) {
+                seasons.remove(i);
+            }
+        }
+
         return seasons;
     }
 
